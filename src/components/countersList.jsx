@@ -17,15 +17,21 @@ const CountersList = () => {
   const handleReset = () => {
     setCounters(initialState);
   };
-  const handleIncrement = () => {
-    console.log("handleIncrement");
-
-    setCounters((value) => counters.value + 1);
+  const handleIncrement = (id) => {
+    console.log("handleIncrement", id);
+    setCounters(
+      counters.map((obj, index) =>
+        index == id ? { ...obj, value: obj.value + 1 } : obj
+      )
+    );
   };
-  const handleDecrement = () => {
-    console.log("handleDecrement");
-
-    setCounters((value) => counters.value - 1);
+  const handleDecrement = (id) => {
+    console.log("handleDecrement", id);
+    setCounters(
+      counters.map((obj, index) =>
+        index == id ? { ...obj, value: obj.value - 1 } : obj
+      )
+    );
   };
 
   return (
