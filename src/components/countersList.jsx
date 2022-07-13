@@ -20,16 +20,16 @@ const CountersList = () => {
   const handleIncrement = (id) => {
     console.log("handleIncrement", id);
     setCounters(
-      counters.map((obj, index) =>
-        index == id ? { ...obj, value: obj.value + 1 } : obj
+      counters.map((counter) =>
+        counter.id === id ? { ...counter, value: counter.value + 1 } : counter
       )
     );
   };
   const handleDecrement = (id) => {
     console.log("handleDecrement", id);
     setCounters(
-      counters.map((obj, index) =>
-        index == id ? { ...obj, value: obj.value - 1 } : obj
+      counters.map((counter) =>
+        counter.id === id ? { ...counter, value: counter.value - 1 } : counter
       )
     );
   };
